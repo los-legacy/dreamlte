@@ -39,8 +39,8 @@ node('ben') {
                 sh label: 'OTA Upload', script: 'source $SYSTEM_PATH/build_script/upload.sh'
             }
             } finally {
-                archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
-                junit 'build/reports/**/*.xml'
+                archiveArtifacts artifacts: '${OUTPUT_PATH}/**/*.zip', fingerprint: true
+                junit '${OUTPUT_PATH}/**/*.log'
             }    
         }
     }
