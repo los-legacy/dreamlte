@@ -14,7 +14,6 @@ node('ben') {
             'LOCAL_MANIFESTS_URL=https://raw.githubusercontent.com/los-legacy/local_manifests/lineage-17.1/dream.xml',
             'LOCAL_MANIFESTS_PATH=.repo/local_manifests', 
             ]) {
-            try {
             stage('Preparation') { // for display purposes
             
                 checkout([$class: 'GitSCM', 
