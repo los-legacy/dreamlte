@@ -10,4 +10,5 @@ repo init -u https://github.com/LineageOS/android.git -b ${BRANCH}
 rm -rf "${SYSTEM_PATH:?}"/"${LOCAL_MANIFESTS_PATH}"/
 mkdir -p "${LOCAL_MANIFESTS_PATH}"
 wget "${LOCAL_MANIFESTS_URL}" -O "${SYSTEM_PATH}"/"${LOCAL_MANIFESTS_PATH}"/"${DEVICE}".xml
+//repo forall -c 'git reset --hard ; git clean -fdx' 
 repo sync --no-clone-bundle --force-sync
