@@ -35,7 +35,7 @@ node('ben') {
                 sh label: 'Build', script: 'source $SYSTEM_PATH/build_script/build.sh'
             }
             stage('OTA Upload') { // for display purposes
-                sh label: 'Test', script: "echo $LINEAGE_VERSION"
+                sh label: 'Test', script: '"echo $LINEAGE_VERSION"'
                 //sh label: 'OTA Upload', script: 'source $SYSTEM_PATH/build_script/upload.sh'             
             }
         }
