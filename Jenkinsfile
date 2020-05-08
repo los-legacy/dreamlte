@@ -36,6 +36,7 @@ node('ben') {
             }
             stage('OTA Upload') { // for display purposes
                 sh 'echo ${LINEAGE_VERSION}'
+                archiveArtifacts artifacts: '"$OUTPUT_PATH"/**/*.zip', fingerprint: true
                 //sh label: 'OTA Upload', script: 'source $SYSTEM_PATH/build_script/upload.sh'             
             }
         }
