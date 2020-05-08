@@ -32,7 +32,7 @@ node('ben') {
                 //sh label: 'RepoSync', script: 'source $SYSTEM_PATH/build_script/reposync.sh'
             }
             stage('Build') { // for display purposes
-                //sh label: 'Build', script: 'source $SYSTEM_PATH/build_script/build.sh'
+                sh label: 'Build', script: 'source $SYSTEM_PATH/build_script/build.sh'
             }
             stage('OTA Upload') { // for display purposes
                 sh label: 'Test', script: 'echo $LINEAGE_VERSION'
