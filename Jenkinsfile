@@ -36,11 +36,11 @@ node('ben') {
                 //sh label: 'Build', script: 'source $SYSTEM_PATH/build_script/build.sh'
             }
             stage('OTA Upload') { // for display purposes
-                sh label: 'OTA Upload', script: 'source $SYSTEM_PATH/build_script/upload.sh'
+                //sh label: 'OTA Upload', script: 'source $SYSTEM_PATH/build_script/upload.sh'
             }
             } finally {
-                archiveArtifacts artifacts: '${OUTPUT_PATH}/**/*.zip', fingerprint: true
-                junit '${OUTPUT_PATH}/**/*.log'
+                archiveArtifacts artifacts: '$OUTPUT_PATH/**/*.zip', fingerprint: true
+                junit '$OUTPUT_PATH/**/*.log'
             }    
         }
     }
