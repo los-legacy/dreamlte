@@ -14,6 +14,7 @@ node('ben') {
             'LOCAL_MANIFESTS_URL=https://raw.githubusercontent.com/los-legacy/local_manifests/lineage-17.1/dream.xml',
             'LOCAL_MANIFESTS_PATH=.repo/local_manifests', 
             ]) {
+            try {
             stage('Preparation') { // for display purposes
             
                 checkout([$class: 'GitSCM', 
@@ -37,6 +38,10 @@ node('ben') {
             stage('OTA Upload') { // for display purposes
                 sh label: 'OTA Upload', script: 'source $SYSTEM_PATH/build_script/upload.sh'
             }
+            } finally {
+                archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
+                junit 'build/reports/**/*.xml'
+            }    
         }
     }
 }
