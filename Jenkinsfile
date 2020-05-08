@@ -36,13 +36,8 @@ node('ben') {
                 //sh label: 'Build', script: 'source $SYSTEM_PATH/build_script/build.sh'
             }
             stage('OTA Upload') { // for display purposes
-                //sh label: 'OTA Upload', script: 'source $SYSTEM_PATH/build_script/upload.sh'
-                archiveArtifacts artifacts: '/home/benlue/android/lineage/out/target/product/*/*.zip', fingerprint: true, onlyIfSuccessful: true
+                //sh label: 'OTA Upload', script: 'source $SYSTEM_PATH/build_script/upload.sh'             
             }
-            } finally {
-                archiveArtifacts artifacts: '/home/benlue/android/lineage/out/target/product/*/*.zip', fingerprint: true
-                junit '/home/benlue/android/lineage/out/target/product/*/*.log'
-            }    
         }
     }
 }
