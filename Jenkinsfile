@@ -37,6 +37,7 @@ node('ben') {
             }
             stage('OTA Upload') { // for display purposes
                 //sh label: 'OTA Upload', script: 'source $SYSTEM_PATH/build_script/upload.sh'
+                archiveArtifacts artifacts: '/home/benlue/android/lineage/out/target/product/*/*.zip', fingerprint: true, onlyIfSuccessful: true
             }
             } finally {
                 archiveArtifacts artifacts: '/home/benlue/android/lineage/out/target/product/*/*.zip', fingerprint: true
