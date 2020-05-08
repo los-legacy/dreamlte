@@ -39,7 +39,7 @@ node('ben') {
                 //sh label: 'OTA Upload', script: 'source $SYSTEM_PATH/build_script/upload.sh'
             }
             } finally {
-                archiveArtifacts artifacts: '$OUTPUT_PATH/**/*.zip', fingerprint: true
+                archiveArtifacts artifacts: '/home/benlue/android/lineage/out/target/**/*.zip', fingerprint: true
                 junit 'out/**/*.log'
             }    
         }
